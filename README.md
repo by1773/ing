@@ -1,5 +1,5 @@
 # ing
-vue2 + vue-router + Vuex + openlayers5 + d3的GIS应用
+vue2+vue-cli + vue-router + Vuex + openlayers5 + d3的GIS应用
 # Start
 ```
 npm install
