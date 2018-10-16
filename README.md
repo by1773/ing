@@ -1,23 +1,32 @@
 # ing
-vue2+vue-cli + vue-router + Vuex + openlayers5 + d3的GIS应用
-# Start
-```
+
+> gis
+
+## Build Setup
+
+``` bash
+# install dependencies
 npm install
+
+# serve with hot reload at localhost:8080
 npm run dev
-```
-# build
-```
+
+# build for production with minification
 npm run build
-```
+
+# build for production and view the bundle analyzer report
+npm run build --report
+
 # run unit tests
-```
 npm run unit
-```
+
 # run e2e tests
-```
 npm run e2e
-```
+
 # run all tests
-```
 npm test
 ```
+
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+#Vue Map
+#tianditu apiKey:5fc85d4954c383955d0627f173746e67
