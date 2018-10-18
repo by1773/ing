@@ -1,0 +1,117 @@
+<template>
+	<div class="header">
+			<div id="nav" >
+					<div class="logo_box">
+						<img src="/static/image/nav_pic.png" width="213px" height="44px" title="logo">
+					</div>
+					<!-- <ul>
+						<li v-for = "(item,index) in navData" :key = "index">
+							<router-link :to="item.link">
+		            	<span>{{item.name}}</span>
+		          </router-link>
+						</li>
+					</ul> -->
+					<div class="nav">
+            <ul class="headerNav" id="headerNav">
+              <li tag="li" value="0101" class="selected">
+                <router-link tag="a" to="/index">首页</router-link>
+                <div>
+                </div>
+              </li>
+              <li value="0102">
+                <router-link tag="a" to="/map">实时贵州</router-link>
+                <div>
+                </div>
+              </li>
+              <li value="0103">
+                <router-link tag="a" to="/index" target="_self">解决方案</router-link>
+                <div>
+                  <router-link tag="a" to="/index" target="_self">概述</router-link>
+                  <router-link tag="a" to="/index" target="_self">产品架构</router-link>
+                  <router-link tag="a" to="/index" target="_self">遥感城市</router-link>
+                  <router-link tag="a" to="/index" target="_self">合作洽谈</router-link>
+                </div>
+              </li>
+              <li value="0104">
+                <router-link tag="a" to="/index" target="_self">影像定制</router-link>
+                <div>
+                  <router-link tag="a" to="/index" target="_self">服务介绍</router-link>
+                  <router-link tag="a" to="/index" target="_self">API示例</router-link>
+                  <router-link tag="a" to="/index" target="_self">定制数据</router-link>
+                </div>
+              </li>
+              <li value="0105">
+                <router-link tag="a" to="/index" target="_self">信息产品定制</router-link>
+                <div>
+                  <router-link tag="a" to="/index" target="_self">产品类型</router-link>
+                  <router-link tag="a" to="/index" target="_self">定制服务</router-link>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="login">
+          </div>
+      </div>
+	</div>
+</template>
+
+<script type="text/javascript">
+	export default{
+		// name:'head',
+		data(){
+		  return {
+		    navData:[
+		      {name:'Index_D3_Vuex',link:'/index'},
+		      {name:'Map_Interactions',link:'/map'},
+		      {name:'Search_GeoJSON',link:'/serch'},
+		      {name:'XYZ_Titled',link:'/XYZ_Title'}
+		    ]
+		  }
+		},
+		methods:{
+
+		},
+		mounted(){
+
+		}
+	}
+</script>
+
+<style type="text/css" scoped lang="less">
+	#nav{
+	  display: flex;
+	  height: 80px;
+	  width: 1200px;
+	  margin:0 auto;
+	  flex-direction: row;
+	  justify-content: flex-start;
+	  align-items: center;
+	  .logo_box{
+	  	padding: 0 60px 0 10px;
+	  }
+	  ul{
+	  	display: flex;
+	  	height: 100%;
+	  	flex-direction: row;
+	  	list-style: none;
+	  	overflow: hidden;
+	  	li{
+	  		height: 80px;
+	  		display: flex;
+	  		justify-content: center;
+	  		align-items: center;
+    		border-bottom: 7px solid #ffe400;
+    		a{
+					width: 126px;height: 73px
+    		}
+	  	}
+	  }
+	}
+
+	#nav a{
+	  padding:0 12px;
+	}
+	#nav .active{
+	  color:red;
+	}
+</style>

@@ -38,10 +38,10 @@ methods:{
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  font-weight: bold;
   display: flex;
   flex-direction: column;
   height: 100%;
+  font-size: 16px;
   justify-content: space-around;
 }
 

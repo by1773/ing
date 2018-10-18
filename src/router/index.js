@@ -1,9 +1,11 @@
 import Vue from 'vue'
 import Router from 'vue-router'
+const Main_Vuex =()=> ({component: import('@/components/Main_Vuex.vue')})
 const Index_D3_Vuex =()=> ({component: import('@/components/Index_D3_Vuex.vue')})
 const Search_GeoJSON =()=> ({component: import('@/components/Search_GeoJSON.vue')})
 const XYZ_Title =()=> ({component: import('@/components/XYZ_Title.vue')})
 const Map_Interactions =()=>({component:import('@/components/Map_Interactions.vue')})
+
 Vue.use(Router)
 
 export default new Router({
@@ -11,7 +13,7 @@ export default new Router({
   routes: [
     {
       path: '/index',
-      component: Index_D3_Vuex
+      component: Main_Vuex
     },
     {
       path: '/serch',
