@@ -12,6 +12,12 @@ import VueAxios from 'vue-axios'
 import VueI18n from 'vue-i18n'
 import store from '@/vuex/store'
 import vRegion from 'v-region';
+//ui
+import 'iview/dist/styles/iview.css';
+import { Button, Table,Spin } from 'iview';
+Vue.component('Button', Button);
+Vue.component('Table', Table);
+Vue.component('Spin', Spin);
 Vue.use(vRegion);
 Vue.use(VueAxios,axios)
 Vue.use(VueI18n)

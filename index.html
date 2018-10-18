@@ -4,10 +4,18 @@
     <meta charset="utf-8">
     <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="keyword" content="gis">
+    <link rel="shortcut icon" type="images/x-icon" href="static/image/logo.png">
     <title>ing</title>
   </head>
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script type="text/javascript">
+      let htmlwidth = document.documentElement.clientWidth || document.body.clientWidth ;
+      let htmlDom = document.getElementsByTagName('html')[0];
+      if(htmlwidth>750){  htmlwidth=750 }
+      htmlDom.style.fontSize= htmlwidth/20 +'px';
+  </script>
 </html>
