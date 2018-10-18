@@ -21,9 +21,12 @@
 <style type="text/css" scoped>
 	#foot{
 		height: 60px;
-		background: #eee;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		width: 100%;
+    font-size: 16px;
+    color: #fff;
+    background-color: #333;
 	}
 </style>

@@ -1,23 +1,59 @@
 <template>
   <div class="map-wrap">
-    <div class="toolbar">
-      <div class="btn clearfix" @click="clearDraw()">
-        <span class="fa fa-repeat clear-draw"></span><span class="text">清除交互</span>
-      </div>
-      <div class="btn clearfix" @click="clearLayer()">
-        <span class="fa fa-eraser clear-layer"></span><span class="text">清除图层</span>
-      </div>
-      <div class="btn clearfix" @click="addInteraction('Polygon')" :class="{active: actived === 'Polygon'}">
-        <span class="fa fa-arrows polygon"></span><span class="text">面标绘</span>
-      </div>
-      <div class="btn clearfix" @click="addInteraction('LineString')" :class="{active: actived === 'LineString'}">
-        <span class="fa fa-arrows-h line"></span><span class="text">线标绘</span>
-      </div>
-      <div class="btn clearfix" @click="addInteraction('Point')" :class="{active: actived === 'Point'}">
-        <span class="fa fa-dot-circle-o point"></span><span class="text">点标绘</span>
-      </div>
+    <div class="bar">
+      <div class="toolbar">
+        <div class="bar-left">
+          <ul class="bar_left_ul">
+            <li class="diff">
+              <a><span class="fa fa-repeat clear-draw"></span><span class="text">路网</span></a>
+            </li>
+            <li class="diff">
+              <a><span class="fa fa-repeat clear-draw"></span><span class="text">地形</span></a>
+            </li>
+            <li @click="clearDraw()">
+              <a><span class="fa fa-repeat clear-draw"></span><span class="text">清除交互</span></a>
+            </li>
+            <li @click="clearLayer()">
+              <a><span class="fa fa-eraser clear-layer"></span><span class="text">清除图层</span></a>
+            </li>
+            <li @click="addInteraction('Polygon')" :class="{active: actived === 'Polygon'}">
+              <a><span class="fa fa-arrows polygon"></span><span class="text">面标绘</span></a>
+            </li>
+            <li  @click="addInteraction('LineString')" :class="{active: actived === 'LineString'}">
+              <a><span class="fa fa-arrows-h line"></span><span class="text">线标绘</span></a>
+            </li>
+            <li @click="addInteraction('Point')" :class="{active: actived === 'Point'}">
+              <a><span class="fa fa-dot-circle-o point"></span><span class="text">点标绘</span></a>
+            </li>
+          </ul>
+          <div class="dz">
+            <p>
+              <p style="cursor: help;">我们为您提供定制影像服务，实时获取最新影像。</p>
+              <a >我要定制>></a>
+            </p>
+          </div>
+        </div>
+        <div class="bar-right">
+          <ul class="bar_right_ul">
+            <li>
+              <a class="fa fa-search"></a>
+            </li>
+            <li>
+              <a class="fa fa-gear"></a>
+            </li>
+            <li>
+              <a class="fa fa-refresh"></a>
+            </li>
+          </ul>
+        </div>
+       </div>
     </div>
     <div id="map"></div>
+    <div class="slider_menu">
+      <span class="fa fa-globe"></span>
+      <span class="earthText">样例</span>
+      <span class="fa fa-angle-double-right"></span>
+    </div>
   </div>
 </template>
 
@@ -182,67 +218,126 @@ export default {
 }
 </script>
 
-<style scoped>
+<style scoped lang="less">
 .map-wrap {
   position: relative;
   width: 100%;
   height: 100%;
-}
-.toolbar {
-  height: 28px;
-  background-color: #eee;
-  border: 1px solid #ccc;
-  display: flex;
-  flex-direction: row;
-  align-items: center; 
-}
-#map {
-  position: absolute;
-  top: 30px;
-  bottom: 0;
-  width: 100%;
-}
-.btn {
-  float: right;
-  font-size: 12px;
-  margin: 0 5px;
-  cursor: pointer;
-  border-radius: 4px;
-}
-.btn:hover {
-  font-weight: bold;
-}
-.icon {
-  display: inline-block;
-  width: 18px;
-  height: 28px;
-  /*background: #eeeeee url(../../static/images/icons.png);*/
-  vertical-align: middle;
-}
-.point {
-  background-position: -76px -127px;
-}
-.line {
-  background-position: -149px -127px;
-}
-.polygon {
-  background-position: -166px -127px;
-}
-.clear-draw {
-  background-position: -278px -127px;
-}
-.clear-layer {
-  background-position: -110px -127px;
-}
-.active {
-  color: rgb(18, 88, 175);
-  font-size: 14px;
-  font-weight: 700;
-}
-.clearfix::after {
-  content: "\20";
-  display: block;
-  height: 0;
-  clear: both;
+  .bar {
+    position: absolute;
+    top: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 43px;
+    color: #fff;
+    .toolbar{
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      background-color: #000;
+      opacity: 0.8;
+      width: 100%;
+      height: 43px;
+      font-size: 12px;
+      overflow: hidden;
+      .bar-left{
+        display: flex;
+        flex-wrap: wrap;
+        overflow: hidden;
+        ul{
+          display: flex;
+          height: 43px;
+          overflow: hidden;
+          li{
+            &.diff{border-right: 1px solid #454545}
+            width: 90px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            a{
+              cursor: pointer;
+              text-decoration: none;
+              color: rgb(255, 255, 255);
+              .fa{
+                margin-right: 6px;
+              }
+              &:hover{
+                color: #ffe400;
+              }
+            }
+          }
+        }
+        div{
+          display: flex;
+          align-items: center;
+          border-left: 1px solid #454545;
+          padding-left:10px;
+          align-items: center;
+           a{
+            color: #ffe400;
+            height: 43px;
+            width: 87px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            &:hover{
+              background: #ffe400;
+              color: #000;
+            }
+          }
+        }
+      }
+      .bar_right_ul{
+        display: flex;
+        padding-right: 15px;
+        height: 43px;
+        li{
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 30px;
+          height: 100%;
+          &:hover{
+            background: #ffe400;
+            a{color: #000}
+          }
+          a{
+            text-decoration: none;color: #fff
+          }
+        }
+      }
+    }
+  } 
+  .slider_menu{
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 34px;
+    padding: 5px 0 5px 0;
+    height: 96px;
+    color: #fff;
+    background-color: #000;
+    opacity: 0.82;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    z-index: 99999;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    span.earthText{
+      width: 14px;
+      font-size: 14px;
+      display: inline-block;
+      padding: 5px 0;
+    }
+    &:hover{
+      background: #ffe400;
+      color:#000;
+    }
+  }
 }
 </style>

@@ -19,7 +19,7 @@
 	              </div>
 	            </li>
 	            <li value="0103">
-	              <router-link tag="a" to="/index" target="_self">解决方案</router-link>
+	              <router-link tag="a" to="/fa" target="_self">解决方案</router-link>
 	              <div>
 	                <router-link tag="a" to="/index" target="_self">概述</router-link>
 	                <router-link tag="a" to="/index" target="_self">产品架构</router-link>
@@ -28,7 +28,7 @@
 	              </div>
 	            </li>
 	            <li value="0104">
-	              <router-link tag="a" to="/index" target="_self">影像定制</router-link>
+	              <router-link tag="a" to="/yx" target="_self">影像定制</router-link>
 	              <div>
 	                <router-link tag="a" to="/index" target="_self">服务介绍</router-link>
 	                <router-link tag="a" to="/index" target="_self">API示例</router-link>
@@ -36,7 +36,7 @@
 	              </div>
 	            </li>
 	            <li value="0105">
-	              <router-link tag="a" to="/index" target="_self">信息产品定制</router-link>
+	              <router-link tag="a" to="/xx" target="_self">信息产品定制</router-link>
 	              <div>
 	                <router-link tag="a" to="/index" target="_self">产品类型</router-link>
 	                <router-link tag="a" to="/index" target="_self">定制服务</router-link>
@@ -46,17 +46,25 @@
 	        </div>
         </div>
         <div class="login-no signIn">
-        	<a >登录</a>
+        	<a @click = "userLogin()">登录</a>
         </div>
       </div>
       </div>
+      <modal :is-show="isShowLogDialog" @on-close="closeDialog('isShowLogDialog')">
+        <!-- <log-form @has-log="onSuccessLog"></log-form> -->
+      </modal>
     </div>
 </template>
 <script>
+  import modal from '@/components/component/modal.vue'
   export default {
   name: 'App',
+  components:{
+    modal
+  },
   data() {
     return {
+      isShowLogDialog: false,
       navData:[
         {name:'首页',link:'/index'},
         {name:'实时贵州',link:'/map'},
@@ -78,6 +86,17 @@
   mounted() {
   },
   methods: {
+    userLogin(){
+      this.isShowLogDialog = true
+    },
+    closeDialog (attr) {
+      this[attr] = false
+    },
+    onSuccessLog (data) {
+      console.log(data)
+      this.closeDialog ('isShowLogDialog')
+      this.username = data.username
+    }
   },
   created () {
   }
@@ -122,20 +141,12 @@
           &:hover {
             border-bottom: 7px solid #ffe400;
             background-color: #ffe400;
-            height: 73px;
 
             >div {
               display: block;
             }
           }
-
-          ;
-
-          &.selected {
-            height: 73px;
-            border-bottom: 7px solid #ffe400;
-          }
-
+          .router-link-exact-active{border-bottom: 7px solid #ffe400;}
           >div {
             position: absolute;
             z-index: 100;
@@ -153,15 +164,19 @@
               text-align: center;
               line-height: 38px;
               color: #000;
-              direction: none
+              direction: none;
+              &:hover{
+              	background: rgba(218,195,0,0.88);
+              }
             }
           }
 
           >a {
             color: #000;
             display: inline-block;
+            text-decoration: none;
             width: 126px;
-            height: 73px;
+            height: 80px;
           }
         }
       }
